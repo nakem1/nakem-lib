@@ -6,7 +6,7 @@
 /*   By: lmurray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 02:59:31 by lmurray           #+#    #+#             */
-/*   Updated: 2020/11/05 05:46:23 by lmurray          ###   ########.fr       */
+/*   Updated: 2021/02/14 18:39:27 by lmurray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 10
+#endif
+
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
@@ -34,6 +38,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 
+void				ft_putstr(char *str);
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *s);
 char				*ft_strcpy(char *dest, const char *src);
@@ -57,6 +62,7 @@ int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+void				ft_putnbr(int nb);
 
 int					ft_toupper(int c);
 int					ft_tolower(int c);
@@ -82,5 +88,6 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 	void (*del)(void *));
+int					get_next_line(int fd, char **line);
 
 #endif

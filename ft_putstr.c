@@ -6,11 +6,11 @@
 /*   By: lmurray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 10:33:11 by lmurray           #+#    #+#             */
-/*   Updated: 2020/03/10 20:39:37 by lmurray          ###   ########.fr       */
+/*   Updated: 2021/02/14 17:48:47 by lmurray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_putchar(char c);
+#include "libft.h"
 
 void	ft_putstr(char *str)
 {
@@ -19,7 +19,7 @@ void	ft_putstr(char *str)
 	it = 0;
 	while (str[it] != '\0')
 	{
-		ft_putchar(str[it]);
+		write(1, &str[it], 1);
 		it++;
 	}
 }

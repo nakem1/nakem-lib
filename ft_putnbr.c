@@ -6,31 +6,36 @@
 /*   By: lmurray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 13:56:22 by lmurray           #+#    #+#             */
-/*   Updated: 2020/03/09 22:06:11 by lmurray          ###   ########.fr       */
+/*   Updated: 2021/02/14 17:53:13 by lmurray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_putchar(char c);
+#include "libft.h"
 
 void	ft_putnbr(int nb)
 {
+	char tmp;
+
 	if (nb < 0)
 	{
 		if (nb == -2147483648)
 		{
-			ft_putchar('-');
-			ft_putchar('2');
-			ft_putchar('1');
+			write(1, "-", 1);
+			write(1, "2", 1);
+			write(1, "1", 1);
 			nb = 47483648;
 		}
 		else
 		{
-			ft_putchar('-');
+			write(1, "-", 1);
 			nb *= -1;
 		}
 	}
 	if (nb < 10)
-		ft_putchar(nb + '0');
+	{
+		tmp = nb + '0';
+		write(1, &tmp, 1);
+	}
 	else
 	{
 		ft_putnbr(nb / 10);
